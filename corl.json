@@ -1,0 +1,61 @@
+{
+  "builders": {
+    "package": {
+      "environment": {
+        "production": {
+          "coralnexus__web": "github:::coralnexus/corl-package-web[9bbe93992a28ea6ded4fc357378777bd3b8f8837]"
+        },
+        "qa": {
+          "use": "production"
+        },
+        "default": {
+          "coralnexus__web": "github:::coralnexus/corl-package-web"
+        }
+      }
+    }
+  },
+  "provisioners": {
+    "puppetnode": {
+      "coralnexus::web": {
+        "profiles": {
+          "varnish_server": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[b1f8ecd9be5144d642d7717429a3652234b5f0d9]"
+                }
+              },
+              "default": {
+                "modules": {
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal"
+                }
+              }
+            }
+          }
+        }
+      },
+      "coralnexus::drupal": {
+        "profiles": {
+          "apache_drupal": {
+            "extend": [ "apache_server", "php" ],
+            "environment": {
+              "production": {
+                "modules": {
+                  "drupal": "github:::coralnexus/puppet-drupal[52fbdefa2106ce761e3b66afd74f5be190d43141]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "drupal": "github:::coralnexus/puppet-drupal"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
