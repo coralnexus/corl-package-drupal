@@ -37,7 +37,7 @@
       "coralnexus::drupal": {
         "profiles": {
           "apache_drupal": {
-            "extend": [ "apache_server", "php" ],
+            "extend": [ "coralnexus::web::profile::apache_server", "coralnexus::core::profile::php" ],
             "environment": {
               "production": {
                 "modules": {
