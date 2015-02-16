@@ -22,7 +22,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[b1f8ecd9be5144d642d7717429a3652234b5f0d9]"
+                  "varnish_drupal": "github:::coralnexus/puppet-varnish_drupal[befe9c968e3bc5cd5fb322b30a34f587fd75aa5d]"
                 }
               },
               "default": {
