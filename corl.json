@@ -41,7 +41,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "drupal": "github:::coralnexus/puppet-drupal[52fbdefa2106ce761e3b66afd74f5be190d43141]"
+                  "drupal": "github:::coralnexus/puppet-drupal[62d5b9ff045308257be7bca7df5f2462bf7f1300]"
                 }
               },
               "qa": {
